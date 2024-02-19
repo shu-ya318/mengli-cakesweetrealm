@@ -1,0 +1,140 @@
+body{
+    background:url(https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat fixed ;
+}
+img {
+    max-width: 100%;
+}
+/* 頁首 */  
+.header-container{
+    display: flex; 
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh ;  
+    background:url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat center/cover fixed ;
+    opacity:0.8;
+}
+ul.redirection{
+     display: flex;        
+    position: absolute;  
+    top: 0px; 
+    right: 0; 
+    list-style-type:none; 
+    margin-right:5px; 
+}
+ul.redirection li{
+    margin-left: 8px;
+}   
+ul.redirection a{
+    padding: 6px 10px ;
+    border:  2px solid #272727 ;
+    border-radius: 3px; 
+    background-color:#FCFCFC;
+    color: black;  opacity: 0.85;
+    font-weight: bolder;
+    text-align: center;
+    text-decoration: none;
+}
+ul.redirection a:hover{
+    background-color:#4F4F4F ;
+    color:white;
+}
+.header-title{
+    padding: 3px 5px;
+    border-radius: 5px;
+    background-color:white;
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: center;
+    opacity:0.8;
+}
+/*本文區*/
+#container{
+    display: flex;
+    flex-direction: row ;   
+    justify-content: center; 
+    align-items: stretch;      
+    margin-top: 30px;
+}
+/*個別項目的背景樣式*/
+.form-style{
+    margin:  0px  10px;
+    padding: 10px 30px;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    background-color: snow;
+    opacity:0.9;
+}
+.form-style fieldset {
+    border: none; 
+}
+/*項目的標題們*/
+.legend-style{
+    font-size:  x-large;
+    font-weight: bold;
+    text-align: center;
+}
+/*快速登入連結按鈕們*/
+.Btn-style{
+    width: 120px;
+    height:40px;
+    margin: 10px 30px;    
+    border: 3px solid #BEBEBE ;    
+    border-radius: 5px;
+    background-color: 	#8E8E8E ;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.Btn-style:hover{
+    border: 3px solid black ;
+    background-color:black ;
+    color: silver ;
+}
+.help-login{
+    color: rgb(146, 141, 141);
+    text-decoration: none;
+    font-size: small;
+    font-weight: bolder;
+    margin: 50px 0px 0px 5px ;
+}  
+.password-container {
+    display: inline-block; 
+    position: relative;
+}
+#checkEye {
+    position: absolute;   
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    cursor: pointer; 
+}
+@media(max-width:1020px){
+/* 頁首 */
+    header.brandAndredirection {
+        width: 100vw;                
+    }
+    ul.redirection {
+        position: absolute;
+        margin-top: 10px;
+        padding-right:95px;  /*待解決問題: 為何左移非改  定位 或 margin-right?*/
+    }
+}
+@media(max-width:760px){ 
+    ul.redirection {
+        margin: 5px auto;
+    }
+    .header-title{
+        margin:50px 0px 25px 0px;
+    }
+    #container{
+        flex-wrap: wrap;
+    }
+    .form-style:nth-child(2) {   /*只對其中一表單設margin ; 兩個都設會合併*/
+        margin: 30px;  
+    } 
+}
