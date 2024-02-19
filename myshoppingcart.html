@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>夢璃的蛋糕甜境-購物車結帳專區</title>
+        <link rel="stylesheet" type="text/css" href="myshoppingcart.css">
+        <script defer src="cart.js" ></script>
+    </head>
+    <body>
+        <div id="page-content"><!--header跟main的共同父元素，因包含在起始&結束tag內-->
+            <!--頁首-->
+            <header class="header-container">
+                <ul class="redirection">
+                    <li><a href="index.html">首頁</a></li> 
+                    <li><a href="login.html">登入</a></li>
+                    <li><a href="myshoppingcart.html"><img src="https://i.ibb.co/g3XC38c/shopping-cart.png" alt="shopping-cart" height="20px" width="20px"></a></li>
+                </ul>
+                <div class="header-title">購物車結帳專區</div>
+            </header>     
+            <!--本文區-->
+            <main>
+            <!--區塊一，購物車列表-->
+                <section>
+                    <div class="section-title">購物車列表</div>
+                    <div class="container-shoppingcart">
+                        <!--總欄位-->
+                        <div class="item-header">
+                            <div class="item-detail">商品</div>
+                            <div class="price">單價</div>
+                            <div class="count">總數</div> 
+                            <div class="amount">總額</div>
+                            <div class="operate">操作</div>
+                        </div>
+                        <!--產品*6-->
+                        <div id="item1" class="item-body"> <!--產品有id，才能指定刪-->
+                            <div>草莓乳酪塔</div>   
+                            <div class="price">130元</div> 
+                            <div>
+                                <form  class="qtychoice"  method='POST' action='#'>
+                                    <input class="qty-change" type='button' name='quantityminus' value='-'  field='quantity' >
+                                    <input class="qty"        type='text'   name='quantity'      value='0'  size="1" disabled="true">
+                                    <input class="qty-change" type='button' name='quantityplus'  value='+'  field='quantity' >
+                                </form>
+                            </div>
+                            <div class="sum">元</div>
+                            <div><button class="delete" onclick="deleteItem('item1')">刪除</button></div> <!--onclick事件屬性，調用 參數item1的deleteItem函式-->        
+                        </div>
+                        <div id="item2" class="item-body">
+                            <div>藍莓乳酪塔</div>   
+                            <div class="price">120元</div> 
+                            <div>
+                                <form  class="qtychoice"  method='POST' action='#'>
+                                    <input class="qty-change" type='button' name='quantityminus' value='-'  field='quantity' >
+                                    <input class="qty"        type='text'   name='quantity'      value='0'  size="1" disabled="true">
+                                    <input class="qty-change" type='button' name='quantityplus'  value='+'  field='quantity' >
+                                </form>
+                            </div>
+                            <div class="sum">元</div>
+                            <div><button class="delete" onclick="deleteItem('item2')">刪除</button></div>
+                        </div>
+                        <div id="item3" class="item-body">
+                            <div>咖啡乳酪塔</div>   
+                            <div class="price">100元</div> 
+                            <div>
+                                <form  class="qtychoice"      method='POST' action='#'>
+                                    <input class="qty-change" type='button' name='quantityminus' value='-'  field='quantity' >
+                                    <input class="qty"        type='text'   name='quantity'      value='0'  size="1" disabled="true">
+                                    <input class="qty-change" type='button' name='quantityplus'  value='+'  field='quantity' >
+                                </form>
+                            </div>
+                            <div class="sum">元</div>
+                            <div><button class="delete" onclick="deleteItem('item3')">刪除</button></div>
+                        </div>
+                        <div id="item4" class="item-body">
+                            <div>水果彩蛋糕</div>   
+                            <div class="price">160元</div> 
+                            <div>
+                                <form  class="qtychoice"  method='POST' action='#'>
+                                    <input class="qty-change" type='button' name='quantityminus' value='-'  field='quantity' >
+                                    <input class="qty"        type='text'   name='quantity'      value='0'  size="1" disabled="true">
+                                    <input class="qty-change" type='button' name='quantityplus'  value='+'  field='quantity' >
+                                </form>
+                            </div>
+                            <div class="sum">元</div>
+                            <div><button class="delete" onclick="deleteItem('item4')">刪除</button></div>
+                        </div>
+                        <div id="item5" class="item-body">
+                            <div>黑森林蛋糕</div>   
+                            <div class="price">100元</div> 
+                            <div>
+                                <form  class="qtychoice"  method='POST' action='#'>
+                                    <input class="qty-change" type='button' name='quantityminus' value='-'  field='quantity' >
+                                    <input class="qty"        type='text'   name='quantity'      value='0'  size="1" disabled="true">
+                                    <input class="qty-change" type='button' name='quantityplus'  value='+'  field='quantity' >
+                                </form>
+                            </div>
+                            <div class="sum">元</div>
+                            <div><button class="delete" onclick="deleteItem('item5')">刪除</button></div>
+                        </div>
+                        <div id="item6" class="item-body">
+                            <div>香柳磅蛋糕</div>   
+                            <div class="price">110元</div> 
+                            <div>
+                                <form  class="qtychoice"  method='POST' action='#'>
+                                    <input class="qty-change" type='button' name='quantityminus' value='-'  field='quantity' >
+                                    <input class="qty"        type='text'   name='quantity'      value='0'  size="1" disabled="true">
+                                    <input class="qty-change" type='button' name='quantityplus'  value='+'  field='quantity' >
+                                </form>
+                            </div>
+                            <div class="sum">元</div>
+                            <div><button class="delete" onclick="deleteItem('item6')">刪除</button></div>
+                        </div>
+                        <div class="totalAmount" id="totalAmount">商品總計:NT$</div> 
+                    </div> <!--class="container"的結束-->
+                </section>
+            <!--區塊二，結帳資訊-->
+                <section>
+                    <div class="section-title">結帳資訊</div>
+                    <div id="containerCheckout"  class="checkout-style">
+                        <p id="totalAmount">商品總計:NT$</p> 
+                        <p>
+                            <form   method='POST' action='#'>
+                                <span id="shippingRate">運費:NT$</span>     
+                                <select  id="deliveryMethod" name="deliveryMethod"  required > 
+                                    <option value="宅配">宅配</option>
+                                    <option value="店取">店取</option>
+                                </select>
+                            </form>     
+                        </p>          
+                        <p>優惠碼:<label><input type="text"  id="promotionCode" name="promotionCode" minlength="8" maxlength="8" size="18" placeholder="輸入完整優惠碼打8折"  onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" ></label></p>
+                        <p id="orderSummary" >訂單合計:NT$</p>
+                    </div>
+                </section>
+            <!--區塊三，下單資料-->   <!--表單: 勾選符號&輸入字 同行? <label>元素加在各<input> -->
+                <section>
+                    <div class="section-title">下單資料</div>
+                    <div id="form-container"> 
+                        <form class="order"  method='POST' action='#' >
+                            <fieldset>
+                                <legend id="customerInformation">顧客資料</legend>
+                                    <p><label>姓名:<input type="text" name="username" minlength="2"   placeholder="輸入中文姓名"                onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')" required  ></label></p>
+                                    <p><label>電話:<input type="tel"  name="tel"      minlength="10" maxlength="10" placeholder="輸入市話(加區域碼)或手機" oninput = "value=value.replace(/[^\d]/g,'')"      required  ></label></p>
+                                    <p><label>信箱:<input type="email" name="email"   placeholder="輸入訂單通知E-mail"  required  ></label></p>
+                                    <p><label>年齡(選填):<input type="number" name="age" min="18" max="150" ></label></p>
+                                    <p class="sex-flex">性別(選填):  
+                                        <br/>
+                                        <label><input type="radio" name="sex" >男性</label>
+                                        <label><input type="radio" name="sex" >女性</label>
+                                        <label><input type="radio" name="sex" >不便透露</label>
+                                    </p>  
+                            </fieldset>    
+                        </form>
+                        <form class="order"  method='POST' action='#'>
+                            <fieldset>
+                                <legend id="receiverInformation">收件人資料</legend>
+                                    <p><label>姓名:<input type="text" name="username" minlength="2"   placeholder="輸入中文姓名"                onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')" required  ></label></p>
+                                    <p><label>電話:<input type="tel"  name="tel"      minlength="10" maxlength="10" placeholder="輸入市話(加區域碼)或手機" oninput = "value=value.replace(/[^\d]/g,'')"  required ></label></p>
+                                    <p><label>地址:<input type="text" name="address"  minlength="8"  placeholder="輸入完整地址"          onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')"   required></label></p>
+                            </fieldset>    
+                        </form>
+                        <form class="order"  method='POST' action='#' >
+                            <fieldset>
+                                <legend id="paymentInformation">付款資料</legend>
+                                <!--多選項 共享同name屬性 ，才能擇一而不同時被點選-->
+                                <p><input type="radio" name="paymentMethod" >現金貨到支付</p>
+                                <p>
+                                    <input type="radio" name="paymentMethod" >信用卡預先支付
+                                    <br>
+                                    <label>&emsp;<input type="text" name="cardHolder" autocomplete="cc-name" placeholder="持卡人姓名(輸入英文拼音)"  onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')"></label><br>
+                                    <label>&emsp;<input type="text" name="cardNumber" autocomplete="cc-number" placeholder="卡號"       inputmode="numeric" oninput = "value=value.replace(/[^\d]/g,'')" ></label><br>
+                                    <label>&emsp;<input type="text" name="expire" autocomplete="cc-exp" placeholder="有效期(MM/YY)" id="expiryDate"></label><br>
+                                    <label>&emsp;<input type="text" name="csc" autocomplete="cc-csc"  minlength="3" maxlength="3" inputmode="numeric" placeholder="安全碼"  oninput = "value=value.replace(/[^\d]/g,'')" ></label>
+                                </p>
+                            </fieldset>
+                        </form>   
+                        <form class="order"  method='POST' action='#' >
+                            <fieldset>
+                                <legend id="deliveryInformation">運送資料</legend>
+                                <p>送貨方式</p>
+                                <select name="deliveryMethod">
+                                    <optgroup label="宅配取貨">
+                                        <option value="黑貓宅急便">黑貓宅急便</option>
+                                        <option value="郵局">郵局</option>
+                                    </optgroup>
+                                    <optgroup label="到店取貨">
+                                        <option value="北車總店">北車總店</option>
+                                        <option value="蘆洲分店">蘆洲分店</option>
+                                        <option value="土城分店">土城分店</option>
+                                        <option value="公館分店">公館分店</option>
+                                    </optgroup>
+                                </select>
+                                <p>送貨日期
+                                    <br/>
+                                    <input type="date" name="deliveryDate">
+                                </p>
+                            </fieldset>
+                        </form>   
+                        <form  id="order-note" method='POST' action='#'>
+                                <p>訂單備註</p>
+                                <!--label:框線變色來提醒--><!--placeholder:始尾標籤同行才顯示--> <!--框的屬性cols跟rows  比特定尺寸的width height好控制-->
+                                <label><textarea class="orderform-control" name="order-remarks"  placeholder="若發票要開立統編，請輸入公司或機關之統一編號。"  rows="2"  cols="120" ></textarea></label>  
+                        </form>
+                        <form   class="order-checkbox "  method='POST' action='#'>   <!--設定背景相關，要放大的form標籤-->
+                            <div>  <!--設為空址，a href="javascript:;" 、a href="#" (跳轉同頁面頂部 +無障礙類型網站被判定無效網址) -->
+                                <label><input   type="checkbox" name="agreement">我同意<a href="javascript:;">網站服務條款及隱私權政策</a></label>
+                            </div>
+                            <div>
+                                <label><input   type="checkbox" name="news"     >我願意<a href="javascript:;">接收最新消息、優惠等資訊</a></label>
+                            </div>   
+                        </form>
+                        <button type=”submit”  id="submit-btn">送出訂單</button>   <!--避包在form內,否則預設觸發表單提交,需特別寫JS阻止-->
+                    </div>
+                </section>
+                <section>
+                    <div id="orderModal" class="order-modal">
+                        <div class="orderModal-content">
+                            <span class="close-button">&times;</span>
+                            <p>訂單完成! 請留意E-mail通知!</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+            <!--區塊:刪除鍵的防呆模態框 (寫尾端順序原因: 觸發事件時，區別能否操作介面 )-->
+            <section>
+                <div id="deleteModal" class="delete-modal">
+                    <div class="deleteModal-content">
+                        <p>是否確定刪除購買此商品?</p>
+                        <button id="cancelDeleteButton" class="cancelDelete-button">返回</button>
+                        <button id="confirmDeleteButton" class="confirmDelete-button">確認</button>
+                    </div>
+                </div>
+                <div id="deleteModalBackground" class="deleteModal-background"></div>
+            </section>
+    </body>
+</html>
