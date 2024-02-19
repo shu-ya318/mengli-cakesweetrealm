@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>夢璃的蛋糕甜境</title>
+        <link rel="stylesheet" type="text/css" href="index.css">  <!--避@import url(檔名.css); 降效能-->   
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+    </head>
+    <body>  
+        <!--頁首-->   
+        <header class="brandAndredirection" >
+            <ul class="redirection"><!--轉址，跳轉不同子頁面--> 
+                <li><a href="index.html">首頁</a></li> 
+                <li><a href="login.html">登入</a></li>
+                <li><a href="myshoppingcart.html"><img src="https://i.ibb.co/g3XC38c/shopping-cart.png" alt="shopping-cart" height="20px" width="20px"></a></li>
+            </ul>
+            <div class="brand-name"><ruby>夢璃的蛋糕甜境<rt>mengli's&nbsp;&nbsp;&nbsp;cake sweet realm</rt></ruby></div>
+        </header>
+        <!--導欄+側邊欄-->
+        <div class="navAndaside">
+            <nav>   <!--點擊跳轉同網頁的不同區塊-->
+                <ul class="turntosection">
+                    <li><a href="#product" >產品總覽</a></li>
+                    <li><a href="#shops">店鋪據點</a></li>
+                    <li><a href="#aboutus">品牌故事</a></li>
+                </ul>
+            </nav>
+            <aside> <!--選單 (定位就不隨便位移)-->
+                <i class="fa-solid fa-bars" id="menu">選單</i>
+                <ul id="show-menu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="myshoppingcart.html">結帳專區</a></li>
+                    <li><a href=#contactus>聯絡我們</a></li>
+                    <li><a href=#socialmedia>社群媒體</a></li>
+                </ul>
+            </aside >
+        </div>
+        <!--唯一的文中區-->
+        <main>
+            <!--區塊一-->
+            <section>
+                <div id="product" class="section-style">產品總覽</div>
+                <div class="wrapper">   <!--每一產品(照+字)就包在一起，否則字也變成一格網格-->
+                    <div>
+                        <img   src="https://images.unsplash.com/photo-1621955511667-e2c316e4575d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="草莓乳酪塔" class="picture-border" height="150px" width="172px">
+                        <input class="addtocart" type="button" value="加入購物車" name="shoppingcart" style="width:175px ; height:40px;" onclick=" location.href='myshoppingcart.html' " >
+                        <p     class="dessert-name">草莓乳酪塔<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;130元/片</span></p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1567171466295-4afa63d45416?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="藍莓乳酪塔"  class="picture-border"  height="150px" width="172px">
+                        <input class="addtocart" type="button" value="加入購物車" name="shoppingcart" style="width:175px ; height:40px;" onclick=" location.href='myshoppingcart.html' ">
+                        <p class="dessert-name">藍莓乳酪塔<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120元/片</span></p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1616150679978-02fbd7b42120?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="咖啡乳酪塔" class="picture-border"  height="150px" width="172px" >
+                        <input class="addtocart" type="button" value="加入購物車" name="shoppingcart" style="width:175px ; height:40px;" onclick=" location.href='myshoppingcart.html' ">
+                        <p class="dessert-name">咖啡乳酪塔<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100元/片</span></p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1642965232863-3f118f06d494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="繽紛水果蛋糕" class="picture-border"  height="150px" width="172px" >    
+                        <input class="addtocart" type="button" value="加入購物車" name="shoppingcart" style="width:175px ; height:40px;" onclick=" location.href='myshoppingcart.html' ">
+                        <p class="dessert-name">水果彩蛋糕<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160元/片</span></p>    
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1582716401301-b2407dc7563d?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="黑森林蛋糕"  class="picture-border"  height="150px" width="172px">
+                        <input class="addtocart" type="button" value="加入購物車" name="shoppingcart" style="width:175px ; height:40px;" onclick=" location.href='myshoppingcart.html' ">
+                        <p class="dessert-name">黑森林蛋糕<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100元/片</span></p> 
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1645516957005-bb18e3ef6408?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="香柳磅蛋糕"  class="picture-border"  height="150px" width="172px">
+                        <input class="addtocart" type="button" value="加入購物車" name="shoppingcart" style="width:175px ; height:40px;" onclick=" location.href='myshoppingcart.html' ">
+                        <p class="dessert-name">香柳磅蛋糕<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110元/片</span></p>
+                    </div> 
+            </section>
+            <!--區塊二-->
+            <section>
+                <div id="shops" class="section-style">店鋪據點</div>
+                <table border="1.5">
+                    <thead>
+                        <tr><th>店鋪</th><th>地址</th><th>電話</th></tr>
+                    </thead>
+                    <tbody> <!--照片底下有字用figcaption-->
+                        <tr><td><img src="https://images.unsplash.com/photo-1570038283490-0c2b8fe95b2b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="150px" width="200px"><figcaption class="shopname">北車總店</figcaption></td><td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.596396494038!2d121.51146570937941!3d25.047767477714817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a965e1aebc47%3A0xfc079d9e81a5d9c6!2z5Y-w5YyX6LuK56uZ5o236YGL56uZ!5e0!3m2!1szh-TW!2stw!4v1704628377573!5m2!1szh-TW!2stw" height="200px" width="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td><td class="tel">(02)2222-0001</td></tr>
+                        <tr><td><img src="https://images.unsplash.com/photo-1480217741525-f06b2728f650?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="150px" width="200px"><figcaption class="shopname">蘆洲分店</figcaption></td><td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.3059470996777!2d121.4618002593815!3d25.09150277768644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a8b4c66b7301%3A0xeda52e17873ad2dd!2z6JiG5rSy5o236YGL56uZ!5e0!3m2!1szh-TW!2stw!4v1704628448681!5m2!1szh-TW!2stw" height="200px" width="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td><td class="tel">(02)2222-0002</td></tr>
+                        <tr><td><img src="https://images.unsplash.com/photo-1510226621137-6285ff880db6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="150px" width="200px"><figcaption class="shopname">土城分店</figcaption></td><td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7233.586809357337!2d121.43910405869141!3d24.97314269999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681d2b3c6cbbf1%3A0x4146c8465c4ec17e!2z5Zyf5Z-O5o236YGL56uZ!5e0!3m2!1szh-TW!2stw!4v1704628479216!5m2!1szh-TW!2stw" height="200px" width="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td><td class="tel">(02)2222-0003</td></tr>
+                        <tr><td><img src="https://images.unsplash.com/photo-1594161433013-43d02893c83d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height="150px" width="200px"><figcaption class="shopname">公館分店</figcaption></td><td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.564500491778!2d121.529713888855!3d25.01491000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a98aff878e0b%3A0xe948a24b2c10417b!2z5YWs6aSo!5e0!3m2!1szh-TW!2stw!4v1704628508192!5m2!1szh-TW!2stw" height="200px" width="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td><td class="tel">(02)2222-0004</td></tr> 
+                    </tbody>
+                </table>
+            </section>
+            <!--區塊三-->
+            <section>
+                <div id="aboutus" class="section-style">品牌故事</div>
+                <div class="about-flex">
+                    <img  class="aboutus-logo" src="https://i.ibb.co/Qvj05Z8/logo.png" alt="logo"   height="130" width="130" >
+                    <p class="story">民國113年1月1日，夢璃的蛋糕甜境於台北車站正式成立首間實體店鋪。創辦人夢璃秉持著發揚「置身香謐的甜點境域，品味蛋糕帶來的味覺饗宴」理念，希望為大家的生活增添幸福感。主要採用健康麵粉、橄欖油、天然奶油等食材，享受美味甜點的同時，也不必擔心對身體造成過多負擔。</p>
+                </div>
+            </section>
+        </main>
+        <!--頁尾區-->
+        <footer>
+            <ul id="contactus"  class="list-style">
+                <li class="footer-textStyle">聯絡我們</li>   
+                <hr> 
+                <li>服務專線:(02)2520-1314</li>
+                <li>聯絡信箱:menglicakesweetrealm@gmail.com</li>  
+            </ul>       
+            <ul id="socialmedia" class="list-style footer-textStyle  columnbreak">官方社群媒體
+                <hr> 
+                <li>
+                    <a href="https://www.facebook.com/?locale=zh_TW"><img src="https://i.ibb.co/bzSK6jB/facebook.png" alt="facebook"  height="18" width="18"></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/"><img src="https://i.ibb.co/mtbP15k/instagram.png" alt="instagram"  height="18" width="18" ></a>
+                </li>
+            </ul>
+            <div  class="rights  columnbreak">Copyright&copy;2024 Mengli All Rights Reserved.</div>
+        </footer>  
+         <!--JS開始-->
+        <script>  
+            document.addEventListener("DOMContentLoaded", function() {
+                /*選單切換狀態: 取得節點 監聽事件 事件處理程式設為函式( 判斷menu狀態，決定showMenu狀態)*/
+                var menu = document.getElementById("menu");
+                var showMenu = document.getElementById("show-menu");
+                menu.onclick = function(event) {
+                    var display = window.getComputedStyle(showMenu).display;   /*window.getComputedStyle( )是window 物件的方法,回傳指定元素所有CSS屬性值的物件。參數(想取得CSS屬性值的"元素")
+                                                                                差異VS element.style?  前者:只可讀 + 獲取對象範圍廣 ; 後者: 可寫 +對象窄*/
+                    if (display === "none") {
+                        showMenu.style.display = "flex"; 
+                    } else {
+                        showMenu.style.display = "none";
+                    }
+                }
+            });  
+        </script>
+    </body>
