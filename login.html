@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--頁面寬=設備寬 且初始縮放比例為1 --><!--優:網頁在不同大小的設備均可正常瀏覽-->
+        <title>夢璃的蛋糕甜境-會員專區</title>
+        <link rel="stylesheet" type="text/css" href="login.css"> 
+        <!--Font Awesome 的CDN（Content Delivery Network）地址-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+    </head>
+    <body>
+        <header class="header-container">
+            <ul class="redirection">
+                <li><a href="index.html">首頁</a></li> 
+                <li><a href="login.html">登入</a></li>
+                <li><a href="myshoppingcart.html"><img src="https://i.ibb.co/g3XC38c/shopping-cart.png" alt="shopping-cart" height="20px" width="20px"></a></li>
+            </ul>
+            <div class="header-title">會員專區</div>
+        </header>
+        <main>
+            <div id="container">
+                <form class="form-style">
+                    <fieldset>
+                        <legend class="legend-style" id="Single-signon">快速登入</legend>  <!--可用其他平台帳號登入的專有名詞sso(單一登入)-->
+                            <p><input type="button" value="Google" class="Btn-style" ></p>
+                            <p><input type="button" value="FB" class="Btn-style"></p>
+                            <p><input type="button" value="Line" class="Btn-style"></p>
+                    </fieldset>
+                </form>
+                <form class="form-style" >
+                    <fieldset>
+                        <legend class="legend-style" id="member-login">會員登入</legend>
+                            <p>帳號:
+                                <div><input type="text"     name="account" maxlength="10" placeholder="輸入手機號碼" required autofocus  onkeyup="this.value=this.value.replace(/\D/g,'')"></div>
+                            </p>
+                            <p>密碼:
+                                <div class="password-container">  <!--圖案 綁 輸入框 ，一起包含在相對定位的容器內-->
+                                    <input type="password" name="pwd" maxlength="12" required id="pwd"  onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+                                    <i id="checkEye" class="fa fa-eye-slash"></i>
+                                </div>
+                            </p>
+                            <p>
+                                <input type="submit" value="會員登入" >
+                                <input type="checkbox" name="remember">記住我
+                            </p>
+                            <i class="fa-solid fa-unlock-keyhole"></i>
+                            <a href=" " class="help-login">忘記密碼?</a>
+                            <br>
+                            <i class="fa-regular fa-user"></i>
+                            <a href=" " class="help-login">註冊新會員</a>     
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+        <!--填入表單-->
+        <script>   
+        /*點擊眼睛圖示，切換顯示or隱藏已輸入密碼*/
+            var checkEye = document.getElementById("checkEye");
+            var pwd      =  document.getElementById("pwd");
+
+            checkEye.addEventListener("click", function(e){
+            if(e.target.classList.contains('fa-eye-slash')){   /*當點擊對象（e.target）類別中 包含className為fa-eye-slash
+                                                            e=事件對象的慣例取名 (替代: event、evt、myEvent)  
+                                                            target=屬性，指向觸發事件的元素*/
+                e.target.classList.remove('fa-eye-slash');
+                e.target.classList.add('fa-eye');
+                pwd.setAttribute('type','text')             /*類型設為單行文字(可視)*/
+            }else{
+                pwd.setAttribute('type','password');
+                e.target.classList.remove('fa-eye');
+                e.target.classList.add('fa-eye-slash')
+            }                                                /* 不特別寫屬性 =因恢復預設類型為密碼(隱藏)*/
+            });
+        </script>
+    </body>
+</html>
