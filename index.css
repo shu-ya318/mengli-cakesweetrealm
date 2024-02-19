@@ -1,0 +1,375 @@
+/*響應式網頁: 預設 桌機(多個並排) >平板(少個並排)>手機(單一排列)、只寫調整部分 */
+img{  /*圖-最大寬度=父元素寬度，<=容器寬度 。 目的:圖片在各大小裝置,可自適應地伸縮+保持比例*/
+  max-width: 100%;
+}
+html { /*整個網頁字型*/ 
+  font-family:Helvetica,sans-serif;
+}
+/* BUG:無顯示效果? 確認id或class選擇器套對
+   BUG:各項目離視窗寬度不一且留白? 把最寬/位置最旁的項目縮距，其他項目就不會留白*/
+body{
+  background:url(https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat fixed ;    
+}
+/* 頁首 */  
+header.brandAndredirection{   
+  display: flex; 
+  position: relative;         /* 相對於ul.redirection*/ 
+  height: 85vh ;              /* 改變視窗顯示的header高度   vs調整background-size=僅 視窗同寬高度內 圖片縮放*/
+  background:url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat center/cover fixed ;
+  flex-direction: column;
+  justify-content: center;   /* 垂直置中  ，視窗離上下邊等距*/ 
+  align-items: center;       /*水平置中  ，      左右邊  */ 
+                             /* 改寫place-content: center; =縮寫justify-content: center; 加上 align-items: center; 
+                               待解決: 改寫後brand-name的padding left&right壞掉*/ 
+  opacity: 0.85;
+}
+ul.redirection{
+  display: flex;        
+  position: absolute;   
+  top: 10px; 
+  right:40px; 
+  list-style-type:none;  
+}
+ul.redirection li{
+  margin-left:20px;           /*讓首頁、登入、購物車，彼此間距*/
+}   
+ul.redirection a{
+  padding: 6px 10px ;
+  border:  2px solid #272727 ;
+  border-radius: 3px; 
+  background-color:#FCFCFC;
+  color: black;  
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0.85;
+}
+ul.redirection a:hover{
+  background-color:#4F4F4F ;
+  color:white;
+}
+.brand-name{
+  padding: 30px 40px ;
+  border-radius: 5px;
+  background-color:white;
+  color: black;
+  font-weight:bold;
+  font-size: xx-large;
+  text-align: center;
+  word-spacing: 0.5em; 
+  opacity: 0.75;
+}
+/* 導欄 + 側邊欄(選單) */
+.navAndaside{
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+nav{                         
+  width: 92%
+}
+ul.turntosection{  
+  display: flex;
+  list-style-type:none;
+  justify-content: center;
+  background-color:#F0F0F0;
+  margin:0 auto;   /* margin:0;貼齊父元素頂部 =設在有背景色turntosection、逕設nav元素沒用*/
+  padding: 15px 100px ;
+  border:1.5px solid #7B7B7B;
+  border-radius: 3px; 
+  font-size: large;
+}
+ul.turntosection li{
+  margin-left:100px;
+}
+ul.turntosection a{   /*逕寫最內部<a>，避寫 li a */
+  color:#7B7B7B;
+  text-align: center;
+}    
+ul.turntosection a:hover{
+  background-color:#4F4F4F ;
+  color:white;
+} 
+aside{
+  position: absolute;
+  right:  0;
+  top: 5px;
+  justify-content: center;
+}
+#menu{
+  padding: 15px 5px;
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color:#e7e5e5;
+  font-size: 18px;
+}
+#menu:hover{
+  background-color: #a9a7a7 ;
+  cursor: pointer;
+}
+#show-menu{   
+  display: none ;   /* 因js有設定點擊時display: flex ; 所以flex相關設定可執行 */
+  list-style-type:none;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;  
+  background-color:#a9a7a7;
+  margin: 0;
+  padding:10px 15px ;
+  border: 2px solid gray;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 4;
+  white-space: nowrap;
+}
+#show-menu a:link{
+  color:#3C3C3C;        
+}
+#show-menu a:visited {
+  color:	#D0D0D0;
+}
+#show-menu a:active{
+  color:black
+}
+/* 本文區 */
+/* 區塊的標題們 */
+div.section-style{
+  margin:40px;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+}
+/* 區塊一 */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 40px;
+  padding-left: 80px; /* 待解決: 如何自動置中? */
+}    
+.picture-border{
+  border: 2px solid gray;
+  border-radius: 5px ;
+}
+.dessert-name{
+  font-weight: bold;
+  text-align: auto;
+}
+.qty-choice{
+  display: flex;
+  justify-content: auto;
+}
+.addtocart{
+  margin: 0px 40px 0px 1px; 
+  padding: 0.5px 1px;
+  border: 1px soild silver;
+  border-radius: 5px;
+  background-color:lightgray;
+  font-weight: bold;
+  font-size: large;
+  text-align: center; 
+  opacity: 0.6;
+}
+.addtocart:hover { 
+  background-color:#4F4F4F ;
+  color:white;
+} 
+/* 區塊二 */
+table{
+  width: 90%;
+  margin: 0 auto;
+}
+th{
+  padding:10px 1px ;
+  background-color: lightgrey ; 
+  font-weight: bold; 
+}
+figcaption.shopname{
+  font-weight: bold ; 
+  text-align: center ;
+  font-size: large;
+}
+td{
+  background-color: snow;    
+  padding: 10px 40px;  
+}
+td.tel{
+  width: 130px; 
+  text-align: center ;
+}
+/* 區塊三:圖設定繞後,寫哪處元素開始清除文繞圖*/
+.aboutus-logo{
+  float: left;
+  margin: 0px 10px 10px 70px ;
+  border-radius: 20px;
+}
+.story{
+  margin-right: 55px;
+  text-indent: 32px;
+  line-height: 2;
+}
+/* 表尾 */
+footer {
+  display: flex;  
+  clear: left;
+  column-count: 3; 
+  justify-content: space-around; /*聯絡表單、社群表單、版權為flex item，同行統一等距留白。 非調個別box的距離*/
+  margin: 0 auto;
+  padding-top: 5px;
+  border-radius: 5px;
+  background-color: ghostwhite;
+  font-size: small;    
+  white-space: nowrap;
+}
+.footer-textStyle{
+   font-weight: bold;
+   text-align: center;
+}
+#columnbreak{
+  break-before:column;
+}
+.list-style{
+  list-style-type: none; 
+  margin-top: 1px;
+  line-height: 2;
+}
+#contactus{
+  margin-left: 50px;
+}
+.rights{
+  margin: 40px auto;
+}
+@media(max-width:1020px){
+/*頁首*/
+  header.brandAndredirection {
+    width: 100vw;    
+  }
+  ul.redirection {
+    position: absolute;
+    margin-right:50px;  
+  }
+/* 導欄 + 側邊欄(選單)*/
+  .navAndaside{
+    width: 100vw;  /*待解決問題: 和.brandAndredirection無法寫width:100vw就自適應地同時貼齊視窗右邊，而不會留白顯示body背景圖*/
+  }
+  ul.turntosection {
+    overflow-x: auto;
+    width:65vw;     
+  }
+  ul.turntosection li{
+    margin:0 auto;
+  }
+  #menu{
+    font-size:14px;
+    padding-left:1.5px;
+    padding-right:1.5px;
+  }
+  #show-menu{
+    width: 50%;
+    padding-left:30px;
+    padding-right:30px;
+  }
+/* 產品一覽 */
+  .wrapper {    
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap:70px;
+    justify-content: space-around;
+  }
+/*店鋪據點*/
+  table {
+    table-layout: fixed;
+    width: 80%;
+  }
+  table iframe { 
+    max-width: 95%;  /*iframe寬度  <  父元素（td）寬度 */
+  }
+  /* 品牌故事: 棄文繞圖(字仍從圖底下穿過) vs改用flex*/
+  .about-flex{    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    width: 80%;
+    margin: 5px auto;
+  }
+  .aboutus-logo{
+    margin: 0 auto;
+  }
+  .story{
+    margin: 0 auto;
+    padding: 0px 15px;
+  }
+}
+@media(max-width:760px){
+/* 頁首 */
+  header.brandAndredirection {
+    height: 80vw;    
+  }
+  .brand-name{
+    font-size: x-large;
+  }
+  ul.redirection a{   
+    padding: 5px ;
+   }   
+  /* 導欄 +選單 */
+  ul.turntosection{  
+    flex-direction: column;
+    padding: 5px 50px;
+    font-size: 16px;
+  }
+  ul.turntosection li{
+    padding-bottom: 10px;
+  }
+  #menu{
+    padding: 30px 15px;
+  }
+   /*本文區 */
+   section .section-style{
+    font-size: 22px;
+  }
+  /* 產品一覽 */
+  .wrapper {    
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap:20px;
+    justify-content: space-around;
+  }
+  /* 店鋪據點:隱藏地址 */
+  table {
+    table-layout: fixed;
+    width: 83%;
+  }
+  table th:nth-child(2) {
+    display: none;
+  }
+  table td:nth-child(2) {
+    display: none;
+  }
+  /* 品牌故事: 棄文繞圖(字仍從圖底下穿過) vs改用flex，item上下陳列*/
+  .about-flex{        
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+  }
+  .aboutus-logo{
+    margin-bottom:10px;
+  }
+  .story{
+    margin: 0 auto;
+    padding: 0px 20px;
+  }
+  /* footer元素，各item單獨一行且彼此留白 */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 15px; 
+  }
+  footer ul{              
+    padding-right: 50px ;
+  }
+  ul .footer-textStyle {    /*待解決: 聯絡我們 跟 社群媒體  置中卻不一樣位置*/
+    padding-right: 40px ;
+  }
+}
