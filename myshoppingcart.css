@@ -1,0 +1,414 @@
+ /*寫了沒執行效果?  寫更詳細: 選擇器 起始標籤{ } 、 flex:確認父&子關係*/       
+body{
+    background:url(https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat fixed ;
+}
+/* 頁首 */  
+.header-container{
+   display: flex; 
+   position: relative;  
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 30vh ;  
+   background:url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat center/cover fixed ;
+   opacity:0.8;
+}
+ul.redirection{
+   display: flex;     
+   position: absolute;  
+   top: 0px; 
+   right: 0;    
+   list-style-type:none;     
+   margin-right:5px; 
+}
+ul.redirection li{
+   margin-left: 8px;
+}   
+   ul.redirection a{
+   padding: 6px 10px ;
+   border:  2px solid #272727 ;
+   border-radius: 3px; 
+   background-color:#FCFCFC;
+   color: black;  
+   font-weight: bolder;
+   text-align: center;
+   text-decoration: none;
+   opacity: 0.85;
+}
+ul.redirection a:hover{
+   background-color:#4F4F4F ;
+   color:white; 
+}
+.header-title{
+   padding: 3px 5px;
+   border-radius: 5px; 
+   background-color:white;
+   font-weight: bolder;
+   font-size: xx-large;
+   text-align: center;
+   opacity:0.8;    
+}
+/*區塊的標題們*/
+.section-title{
+   margin:30px 0px 20px 0px;
+   font-size:  x-large;
+   font-weight: bold;
+   text-align: center;
+}
+/*區塊一*/
+.container-shoppingcart{
+   width:95%;
+   margin:10px auto;
+}
+/*總欄位說明*/
+.item-header{
+   display: flex;
+   justify-content:space-around;
+   padding:10px 5px 10px  10px;
+   border: 2px solid gray;
+   border-radius: 3px; 
+   background-color: snow;
+   font-weight: bold;
+   text-align: center;
+}
+/*每橫列的產品操作*/
+.item-body{
+   display: flex;
+   justify-content: space-between;
+   margin: 15px 0px 1px 0px;
+   padding: 10px 80px 10px 50px;
+   border: 1px solid gray;
+   border-radius: 3px;
+   background-color: snow;
+   text-align: center;
+   font-weight: bold;
+   opacity: 0.7;
+}      
+.qty {   
+   border: 1px solid gray;
+   border-radius:3px;
+    background-color: white;
+   text-align: center;
+}
+.qty-change{
+   border: 1px solid gray;
+   border-radius:3px;
+}
+.qty-change:hover { 
+   background-color:grey ;
+   color: white ;
+   cursor: pointer; 
+} 
+.sum {
+   display: inline-block;
+}      
+.delete{
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding: 3px;
+   font-weight: bold;
+}       
+.delete:hover{
+   background-color:grey ;
+   color: white ;
+   cursor: pointer; 
+}
+.totalAmount{ 
+   display: flex;
+   flex-direction: column; 
+   justify-content: space-around;
+   align-items: center;
+   margin: 15px 0px 1px 0px;
+   padding: 10px  50px;
+   border: 2px solid gray;
+   border-radius: 3px;
+   background-color: snow;
+   text-align: center; 
+   font-weight: bold;
+   opacity: 0.85
+}   
+/*刪除鍵跳出模態框*/
+.delete-modal{
+   display: none;
+   position: fixed; 
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 2;           /*序高，才不被覆蓋*/
+   justify-content: center;
+   align-items: center;
+   pointer-events: auto;  /*加了才正常執行JS指令*/
+ }
+ .deleteModal-content {
+   max-width: 500px; 
+   margin: auto;
+   padding: 5px 150px;
+   border: 1px solid black;
+   border-radius: 5px;
+   background-color: white;
+   font-weight: bolder;
+   text-align: center;
+}
+.deleteModal-background{
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,0.5);
+   pointer-events: none;  /*加了才正常執行JS指令*/
+ }
+.cancelDelete-button{
+   margin: 20px 15px;
+   padding: 3px 10px;
+   border: 2px solid rgb(98, 3, 3);
+   border-radius: 5px;
+   background-color: rgb(253, 44, 44);
+   color: white;
+   font-size: 16px;
+   text-align: center;
+   text-decoration: none;
+   transition-duration: 0.4s;
+   cursor: pointer;
+}
+.confirmDelete-button {
+   display: inline-block;
+   margin:  20px 15px;
+   padding: 3px 10px;
+   border: 2px solid gray;
+   border-radius: 5px;
+   background-color: white;
+   color: black;
+   font-size: 16px;
+   text-align: center;
+   text-decoration: none;
+   transition-duration: 0.4s;
+   cursor: pointer;
+}
+/*區塊二*/
+.checkout-style{
+   display: flex;
+   flex-direction: column;    
+   justify-content: space-between;
+   width:20%;
+   margin: 10px auto;
+   padding: 20px  20px 5px 20px  ;
+   border:2px solid gray;
+   border-radius: 3px;
+   background-color: snow;
+   font-weight: bold;
+   line-height: 1.5;
+   opacity: 0.85; 
+}
+/*區塊三*/
+/*flex大容器*/ 
+#form-container{  
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: stretch;     /*stretch: item齊頭 ; center: item不齊頭,縮中間 */
+   align-content:center ;   /*讓 各資料區(flex items)跟容器邊緣的留白相等*/
+   justify-content:center; /*item跟留白的相對位置*/
+   width: 70%;
+   margin: 0 auto;         /*整個內容物，往視窗水平置中對齊*/
+}
+/*各item 的圖層、細節*/
+.order{
+   width: 40% ; /*寬度: 兩兩一行 =父元素(container)約一半%*/
+   margin: 20px;            /*讓item 上下左右均分開*/
+   border: 1px solid gray;
+   border-radius: 3px;
+   box-sizing:content-box;
+   background-color: snow;
+   font-size: large;
+   line-height:1.5;
+   opacity:0.9;
+}
+.order fieldset {
+   border: none;            /* 移除fieldset的預設邊框 */
+}
+/*各item標題的樣式*/
+#customerInformation ,#receiverInformation ,#paymentInformation ,#deliveryInformation,#order-note{  
+   margin:     0 auto;  
+   box-sizing: border-box;
+   font-weight: bold;
+   text-align: center;
+}
+/*備註:另設樣式(不套.order)*/
+#order-note {            /*套在父元素，把 <p>備註 跟 <input>包一起*/
+   width:90%;            /*寬度: 獨自一行*/
+   margin-bottom: 20px;
+   border: 1px solid gray;
+   border-radius: 3px;
+   padding-bottom: 10px;
+   box-sizing: border-box;
+   background-color: snow;
+   font-size: large;
+   text-align: center;
+   opacity:0.9;     
+}
+.orderform-control{       /*套在<input type=textarea>元素*/
+   width:100%;
+   box-sizing: border-box; /*寬度: 不能> 父元素( #order-note的元素) */
+   resize:vertical;
+}
+/*檢核表單:另設樣式(不套.order)*/
+.order-checkbox{   
+   width: 90%;             /*寬度: 獨自一行*/  
+   margin: 0 auto;
+   border: 1px solid gray;
+   border-radius: 3px;
+   box-sizing: border-box;  
+   background-color: snow;
+   font-weight:normal;
+   font-size: small;
+   text-align: center;
+   line-height: 2;
+   opacity:0.9;                     
+}
+/*提交按鈕*/
+#submit-btn {    
+   width: 30% ;     
+   background-color:#8E8E8E ;  
+   color:#FFFFFF ;   
+   margin: 20px auto; 
+   padding: 10px 5px;  
+   border: 3px solid #BEBEBE ;    
+   border-radius: 5px;
+   font-weight: bold ;
+   text-align: center;    
+   cursor: pointer;  
+}
+#submit-btn:hover {  
+   box-shadow: inset 0   0 10px 1px rgba(249, 249, 249, 0.984); 
+}
+#submit-btn:active {    
+   transition: .1s;
+   transform: scale(1.1);    
+}
+/*提交訂單的模態框*/
+.order-modal{
+   display: none;
+   position: fixed; 
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%; 
+   height: 100%; 
+   overflow: auto; 
+   background-color: rgba(0,0,0,0.4);
+   justify-content: center;
+   align-items: center;
+}
+.orderModal-content{
+   width: 80%;
+   max-width: 500px; 
+   background:url(https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat center/cover fixed  ;
+   color: #FFFFFF;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #888;
+   font-size: xx-large;
+   font-weight: bolder;
+   text-align: center;
+}
+.close-button {
+   float: right;
+   padding: 1px ;
+   border: 3px solid #FFFFFF ;
+   border-radius: 5px;
+   color: #FFFFFF;
+   font-size: 20px;
+   font-weight: bold;
+}
+.close-button:hover,.close-button:focus {
+   border: 3px solid black ;
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+@media(max-width:1020px){
+   header.brandAndredirection {
+      width: 100vw;                
+   }
+   /*區塊一*/
+   ul.redirection {
+      position: absolute;
+      margin-top: 10px;
+      padding-right:90px;  /*待解決問題*/
+   }
+   .container-shoppingcart{
+      width: 90%;         /*逕調大容器寬度,讓各item寬度統一*/
+   }
+   /*區塊二*/
+   .checkout-style{
+      max-width:20%;     /*待解決問題:顯示比例>75% ，width的值改變無法執行效果*/
+   }  
+   /*區塊三*/
+   .sex-flex{          /*因選項同行擠不下or擠了很窄 = 改用flex獨自一欄*/
+      display: flex;  
+      flex-direction: column;
+      align-items:flex-start;
+   }
+   }
+   @media(max-width:760px){   /*待解決問題:.item-header 跟 .item-item 的字串距離無法縮短相同距離
+                                           下單資料的輸入框內容 無法整個在.order置中*/
+      /*區塊一*/
+      .header-title{
+         margin:55px 0px 25px 0px;
+      }
+      .header-title, .section-title {
+         font-size: normal;
+      }
+      .item-header,.item-body ,.totalAmount{
+         font-size: small ;
+      }
+      .container-shoppingcart{
+         width: 90%;        
+      }
+      .item-header div{
+         padding: 0px 28px; 
+      }
+      .item-body div{
+         padding:0px 10px;
+      }
+      .qtychoice{
+         margin:0px 15px;
+      }
+      .delete{
+         margin-left: 35px;
+         font-size: xx-small;
+      }
+   /*區塊二+三*/
+      #form-container ,.order,#order-note{  
+        width:100%;
+        box-sizing: border-box;
+      }
+      .checkout-style{
+        align-items:stretch;      
+        justify-content: flex-start;
+        padding: 0px 250px 0px 10px ;         /*待解決問題:如何自適應調整大小，同時維持字開頭對齊 整體內容置中不>背景*/  
+        box-sizing: border-box;  
+      }
+      .checkout-style p ,.checkout-style span{
+        width:100%;
+        box-sizing:border-box;
+        white-space: nowrap;
+      }
+      .order{  
+        padding: 10px 50px;
+        box-sizing: border-box;
+        line-height:2.5;
+      }
+      #customerInformation ,#receiverInformation ,#paymentInformation ,#deliveryInformation,#order-note p{                 
+        font-size: medium;
+        text-align: center;
+      }
+      .order p ,order-note label {
+        margin:0 auto;
+        box-sizing:content-box;
+        font-size: xx-small;
+      }
+   }
